@@ -33,7 +33,6 @@ describe('Test find customer use case', () => {
 		customer.changeAddress(address)
 
 		const created = await customerRepository.create(customer)
-		console.log({ created })
 
 		const input = { id: '123' }
 		const output = {
@@ -47,7 +46,7 @@ describe('Test find customer use case', () => {
 			},
 		}
 
-		const result = usecase.execute(input)
+		const result = await usecase.execute(input)
 
 		expect(result).toEqual(output)
 	})
